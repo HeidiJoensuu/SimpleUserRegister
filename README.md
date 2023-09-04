@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Simple user register
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was about to make easy and simple web application for storing and viewing users.
 
-## Available Scripts
+In this project there is only frontend, so there is wannabeBackend-folder that handles and stores website's data into sessionStorage.
 
-In the project directory, you can run:
+Otherwise this application acts like there is a backend. It stores data into localstorage or Redux-store. It gives progress information be giving notifications.
+
+There are two diffeent users:
+* *admin*, with password *admin*,
+* *Bret*, with password *Bret*.
+
+Bred as an user can only see his/her detail page.
+Admin however can see list of all users, see all users details, create new user and remove user.
+When new user is created this owner can activate his/her user by updating password in first login.
+
+(This project is not focused on creating perfect css)
+
+## Starting project
+
+First you need to create .env-file into root of this project. Example of .env-file can be found in .env.example
+
+When .env file is done open this project terminal and run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Structure
+```
+.
+│   .gitignore
+│   package-lock.json
+│   package.json
+│   README.md                       # This readme file
+│   
+├───public
+│       
+└───src
+    │   App.js
+    │   index.css
+    │   index.js
+    │   store.js                    # Redux store
+    │   styles.js                   # MUI-styles file
+    │   
+    ├───components
+    │       Login.js                # Log in page
+    │       NewUserForm.js          # Modal for creating new user
+    │       Notification.js         # Snackbar of notifications
+    │       UserDetail.js           # Details of selected user
+    │       UserList.js             # List of users
+    │       
+    ├───reducers
+    │       usersReducer.js         # Reducer for this webpage
+    │       
+    ├───services
+    │       authService.js          # Handles login and password-related "calls" to backend
+    │       usersServive.js         # Handles user(s)-information "calls" to backend
+    │       
+    ├───utils
+    │       config.js               # Configuration file
+    │       
+    └───wannabeBackend              # Files in this folder replaces functions that
+            authController.js       # backend would do
+            userController.js
+```
