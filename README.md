@@ -20,6 +20,35 @@ When new user is created this owner can activate his/her user by updating passwo
 
 First you need to create .env-file into root of this project. Example of .env-file can be found in .env.example
 
+url in the .env file would be good to be link to the JSON api that has following structure:
+```
+[
+    {
+    "id": int,
+    "name": string,
+    "username": string,
+    "email": string,
+    "address": {
+      "street": string,
+      "suite": string,
+      "city": string,
+      "zipcode": string,
+      "geo": {        //optional
+        "lat": string,
+        "lng": string
+      }
+    },
+    "phone": string,
+    "website": string,
+    "company": {
+      "name": string,
+      "catchPhrase": string,
+      "bs": string
+    }
+]   
+    
+```
+
 When .env file is done open this project terminal and run:
 
 ### `npm start`
